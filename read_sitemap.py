@@ -26,7 +26,7 @@ if response.status_code == 200:
             "lvl3": "#app article .prose h4",
             "lvl4": "#app article .prose h5",
             "lvl5": "#app article .prose h6",
-            "text": "#app header p,#app article .prose p,#app article .prose ol",
+            "text": "#app article .prose",
         },
     }
 
