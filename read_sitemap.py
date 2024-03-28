@@ -21,10 +21,13 @@ if response.status_code == 200:
     data = {
         "index_name": "ryan",
         "start_urls": urls,
+        "only_content_level": True,
         "selectors": {
             "default": {
                 "lvl0": "#app .prose h1",
                 "lvl1": "#app article .prose h1",
+                "lvl0_ignore": "h1 div",
+                "lvl1_ignore": "h1 div",
                 "lvl2": "#app article .prose h3",
                 "lvl3": "#app article .prose h4",
                 "lvl4": "#app article .prose h5",
@@ -33,7 +36,8 @@ if response.status_code == 200:
             },
             "navs": {
                 "lvl0": "article h4",
-                "lvl1": "article .list-disc ul li",
+                "lvl2": "article li",
+                "lvl3": "article li a .line-clamp-1",
                 "content": "article li .text-e",
             },
         },
