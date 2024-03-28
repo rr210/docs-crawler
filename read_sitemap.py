@@ -11,22 +11,31 @@ if response.status_code == 200:
     urls = []
     for loc in soup.find_all("guid"):
         url = loc.text
+        item_map = {"url": url, "variables": {"lang": ["en-US"]}}
         if "/zh/" in url:
-            urls.append({"url": url, "variables": {"lang": ["zh-CN"]}})
-        else:
-            urls.append({"url": url, "variables": {"lang": ["en-US"]}})
+            item_map["variables"]["lang"] = ["zh-CN"]
+        if "/navs" in url:
+            item_map["selectors_key"] = "navs"
+        urls.append(item_map)
 
     data = {
         "index_name": "ryan",
         "start_urls": urls,
         "selectors": {
-            "lvl0": "#app .prose h1",
-            "lvl1": "#app article .prose h1",
-            "lvl2": "#app article .prose h3",
-            "lvl3": "#app article .prose h4",
-            "lvl4": "#app article .prose h5",
-            "lvl5": "#app article .prose h6",
-            "text": "#app article .prose",
+            "default": {
+                "lvl0": "#app .prose h1",
+                "lvl1": "#app article .prose h1",
+                "lvl2": "#app article .prose h3",
+                "lvl3": "#app article .prose h4",
+                "lvl4": "#app article .prose h5",
+                "lvl5": "#app article .prose h6",
+                "text": "#app article .prose",
+            },
+            "navs": {
+                "lvl0": "article h4",
+                "lvl1": "article .list-disc ul li",
+                "content": "article li .text-e",
+            },
         },
     }
 
