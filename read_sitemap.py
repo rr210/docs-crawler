@@ -24,10 +24,8 @@ if response.status_code == 200:
         "only_content_level": True,
         "selectors": {
             "default": {
-                "lvl0": "#app .prose h1",
-                "lvl1": "#app article .prose h1",
-                "lvl0_ignore": "h1 div",
-                "lvl1_ignore": "h1 div",
+                "lvl0": "#app .prose h1 span[data-title]",
+                "lvl1": "h1",
                 "lvl2": "#app article .prose h3",
                 "lvl3": "#app article .prose h4",
                 "lvl4": "#app article .prose h5",
