@@ -11,9 +11,9 @@ if response.status_code == 200:
     urls = []
     for loc in soup.find_all("guid"):
         url = loc.text
-        item_map = {"url": url, "variables": {"lang": ["en"]}}
+        item_map = {"url": url, "lang": ["en"]}
         if "/zh/" in url:
-            item_map["variables"]["lang"] = ["cn"]
+            item_map["lang"] = ["cn"]
         if "/navs" in url:
             item_map["selectors_key"] = "navs"
         urls.append(item_map)
