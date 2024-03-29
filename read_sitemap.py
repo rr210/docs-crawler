@@ -11,9 +11,9 @@ if response.status_code == 200:
     urls = []
     for loc in soup.find_all("guid"):
         url = loc.text
-        item_map = {"url": url, "variables": {"lang": ["en-US"]}}
+        item_map = {"url": url, "variables": {"lang": ["en"]}}
         if "/zh/" in url:
-            item_map["variables"]["lang"] = ["zh-CN"]
+            item_map["variables"]["lang"] = ["cn"]
         if "/navs" in url:
             item_map["selectors_key"] = "navs"
         urls.append(item_map)
@@ -34,7 +34,7 @@ if response.status_code == 200:
             },
             "navs": {
                 "lvl0": "article h4",
-                "lvl2": "article li",
+                "lvl2": "article a .text-base",
                 "lvl3": "article li a .line-clamp-1",
                 "content": "article li .text-e",
             },
