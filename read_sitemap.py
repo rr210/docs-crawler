@@ -34,7 +34,7 @@ if response.status_code == 200:
             },
             "navs": {
                 "lvl0": "article h4",
-                "lvl2": "article a .text-base",
+                "lvl2": "article a div[data-name]",
                 "lvl3": "article li a .line-clamp-1",
                 "content": "article li .text-e",
             },
