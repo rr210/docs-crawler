@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-sitemap_url = "https://mr90.top/sitemap.xml"
+sitemap_url = "https://ryanuo.cc/sitemap.xml"
 response = requests.get(sitemap_url)
 
 if response.status_code == 200:
